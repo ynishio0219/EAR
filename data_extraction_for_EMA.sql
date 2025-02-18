@@ -1,4 +1,5 @@
-WITH date_params AS (
+# /* 計算期間リストの作成*/
+with date_params AS (
     SELECT 
         DATE '{start_date}' AS start_date,  -- 開始日 と長さを変数とするコードへ編集
         DATE '{end_date}' AS end_date      -- 終了日　
@@ -71,7 +72,7 @@ daily_counts AS (
 )
 
 
-/*配信履歴ありモニタへの現日付より過去3ヶ月回答有無情報の付与*/
+/*配信履歴ありモニタへ対象期間内の回答有無情報の付与*/
 SELECT
     pane.mm_panelist_id,
     dc.create_dt,
